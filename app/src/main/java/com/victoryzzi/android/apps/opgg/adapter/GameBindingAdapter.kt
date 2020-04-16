@@ -7,11 +7,12 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.util.TypedValue
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.victoryzzi.android.apps.opgg.R
+import com.victoryzzi.android.apps.opgg.model.Item
+import com.victoryzzi.android.apps.opgg.model.Spell
 import com.victoryzzi.android.apps.opgg.ui.view.GameInfo
 import com.victoryzzi.android.apps.opgg.ui.view.GameItems
 import com.victoryzzi.android.apps.opgg.ui.view.GameSpells
@@ -63,7 +64,8 @@ fun setChampionImage(view: Profile, championImageUrl: String) {
 
 @BindingAdapter("profileText")
 fun setBadge(view: Profile, msg: String) {
-    when(msg){
+    println(msg)
+    when (msg) {
         "ACE" -> {
             view.profile_text.apply {
                 setBackgroundResource(R.drawable.ic_badge_ace)
@@ -92,7 +94,6 @@ fun setBadge(view: Profile, msg: String) {
             }
         }
     }
-//    view.profile_text.text = msg
 }
 
 @BindingAdapter("KDA")
@@ -123,12 +124,24 @@ fun setKDAText(view: TextView, kda: String) {
 }
 
 @BindingAdapter("spells")
-fun setSpells(view: GameSpells, spells: List<String>) {
-    val viewList = listOf(view.spells_first, view.spells_second, view.perk_first, view.perk_second)
+fun setSpells(view: GameSpells, spells: List<Spell>) {
+    val viewList = listOf(view.spells_first, view.spells_second)
     spells.forEachIndexed { i, spell ->
-        when (spell.isBlank()) {
+        when (spell.imageUrl.isBlank()) {
             false -> {
-                Glide.with(view).load(spell).into(viewList[i])
+                Glide.with(view).load(spell.imageUrl).into(viewList[i])
+            }
+        }
+    }
+}
+
+@BindingAdapter("perks")
+fun setPerks(view: GameSpells, perks: List<String>) {
+    val viewList = listOf(view.perk_first, view.perk_second)
+    perks.forEachIndexed { i, url ->
+        when (url.isEmpty()) {
+            false -> {
+                Glide.with(view).load(url).into(viewList[i])
             }
         }
     }
@@ -137,18 +150,27 @@ fun setSpells(view: GameSpells, spells: List<String>) {
 @BindingAdapter("createDate")
 fun setCreateDate(view: TextView, createDate: String) {
     val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd", Locale.getDefault())
-    val parsedDate = createDate.toLong() * 1000
+    val parsedDate = createDate.toLong()
     val currentTime = System.currentTimeMillis()
 
     when (val time = (currentTime - parsedDate).toInt()) {
         in 0..60 -> {
-            view.text = view.resources.getQuantityString(R.plurals.game_create_date_seconds_ago, time, time)
+            view.text =
+                view.resources.getQuantityString(R.plurals.game_create_date_seconds_ago, time, time)
         }
         in 61..3600 -> {
-            view.text = view.resources.getQuantityString(R.plurals.game_create_date_minutes_ago, (time % 60), (time % 60))
+            view.text = view.resources.getQuantityString(
+                R.plurals.game_create_date_minutes_ago,
+                (time % 60),
+                (time % 60)
+            )
         }
         in 3601..86400 -> {
-            view.text = view.resources.getQuantityString(R.plurals.game_create_date_hours_ago, (time % 3600), (time % 3600))
+            view.text = view.resources.getQuantityString(
+                R.plurals.game_create_date_hours_ago,
+                (time / 3600),
+                (time / 3600)
+            )
         }
         else -> {
             view.text = simpleDateFormat.format(Date(parsedDate))
@@ -157,7 +179,7 @@ fun setCreateDate(view: TextView, createDate: String) {
 }
 
 @BindingAdapter("items")
-fun setItems(view: GameItems, items: List<String>) {
+fun setItems(view: GameItems, items: List<Item>) {
     val viewList = listOf(
         view.game_item_1,
         view.game_item_2,
@@ -168,9 +190,9 @@ fun setItems(view: GameItems, items: List<String>) {
     )
 
     items.forEachIndexed { i, item ->
-        when (item.isBlank()) {
+        when (item.imageUrl.isBlank()) {
             false -> {
-                Glide.with(view).load(item).into(viewList[i])
+                Glide.with(view).load(item.imageUrl).into(viewList[i])
             }
         }
     }
@@ -178,7 +200,7 @@ fun setItems(view: GameItems, items: List<String>) {
 
 @BindingAdapter("largestMultiKill")
 fun setLargestMultiKill(view: TextView, msg: String) {
-    when(msg) {
+    when (msg) {
         "" -> view.visibility = View.GONE
         else -> view.text = msg
     }

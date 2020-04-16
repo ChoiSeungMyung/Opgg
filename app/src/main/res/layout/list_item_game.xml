@@ -35,8 +35,8 @@
             android:layout_marginTop="@dimen/dp_16"
             app:layout_constraintStart_toEndOf="@id/game_info"
             app:layout_constraintTop_toTopOf="parent"
-            app:profileImage="@{game.champion}"
-            app:profileText="@{game.opScoreBadge}" />
+            app:profileImage="@{game.champion.imageUrl}"
+            app:profileText="@{game.stats.general.opScoreBadge}" />
 
 
         <com.victoryzzi.android.apps.opgg.ui.view.GameSpells
@@ -48,7 +48,8 @@
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@id/game_champion_image"
             app:layout_constraintTop_toTopOf="@id/game_champion_image"
-            app:spells="@{game.spells}" />
+            app:spells="@{game.spells}"
+            app:perks="@{game.perks}"/>
 
         <TextView
             android:id="@+id/game_kda"
@@ -59,7 +60,7 @@
             android:textColor="@color/colorGunMental"
             android:textSize="@dimen/sp_16"
             android:textStyle="bold"
-            app:KDA="@{game.getKDA()}"
+            app:KDA="@{game.stats.general.getKDA()}"
             app:layout_constraintStart_toEndOf="@id/game_spells"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="10 / 7 / 1" />
@@ -69,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_2"
-            android:text="@{@string/game_contribution_for_killrate(game.contributionForKillRate)}"
+            android:text="@{@string/game_contribution_for_killrate(game.stats.general.contributionForKillRate)}"
             android:textColor="@color/colorGunMental"
             android:textSize="@dimen/sp_12"
             app:layout_constraintStart_toStartOf="@id/game_kda"
@@ -117,7 +118,7 @@
             android:background="@drawable/ic_largest_multikill"
             android:textColor="@color/colorDarkishPink"
             android:textSize="@dimen/sp_10"
-            app:largestMultiKill="@{game.largestMultiKill}"
+            app:largestMultiKill="@{game.stats.general.largestMultiKillString}"
             app:layout_constraintBottom_toBottomOf="@id/game_items"
             app:layout_constraintEnd_toEndOf="@id/game_create_date"
             app:layout_constraintTop_toTopOf="@id/game_items"
