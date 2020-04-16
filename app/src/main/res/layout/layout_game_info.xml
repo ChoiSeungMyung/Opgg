@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_info_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/colorSoftBlue">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/game_is_win"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite100"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/game_is_win_deco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="승" />
+
+        <View
+            android:id="@+id/game_is_win_deco"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginTop="@dimen/dp_6"
+            android:background="@color/colorWhite40"
+            app:layout_constraintEnd_toEndOf="@id/game_is_win"
+            app:layout_constraintStart_toStartOf="@id/game_is_win"
+            app:layout_constraintTop_toBottomOf="@id/game_is_win" />
+
+        <TextView
+            android:id="@+id/game_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:textColor="@color/colorWhite100"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintEnd_toEndOf="@id/game_is_win_deco"
+            app:layout_constraintStart_toStartOf="@id/game_is_win_deco"
+            app:layout_constraintTop_toBottomOf="@id/game_is_win_deco"
+            tools:text="38:45" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

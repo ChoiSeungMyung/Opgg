@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GameInfo">
+        <attr name="bg" format="reference|integer"/>
+        <attr name="isWin" format="reference"/>
+        <attr name="gameLength" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="GameSpells">
+        <attr name="spell_1" format="string"/>
+        <attr name="spell_2" format="string"/>
+        <attr name="perk_1" format="string"/>
+        <attr name="perk_2" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="GameItems">
+        <attr name="item_1" format="string"/>
+        <attr name="item_2" format="string"/>
+        <attr name="item_3" format="string"/>
+        <attr name="item_4" format="string"/>
+        <attr name="item_5" format="string"/>
+        <attr name="item_6" format="string"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#EBEEF1</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorWhite100">#FFFFFFFF</color>
+    <color name="colorWhite40">#66FFFFFF</color>
+
+    <color name="colorSoftBlue">#5383E8</color>
+    <color name="colorDarkishPink">#E84057</color>
+    <color name="colorGunMental">#52595F</color>
+    <color name="colorCoolGray">#98A0A7</color>
+    <color name="colorOrangeYellow">#FFA905</color>
+    <color name="colorPeriwinkle">#8B68FF</color>
+    <color name="colorDarkGrey">#1E2022</color>
+</resources>

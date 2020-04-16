@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Opgg</string>
+
+    <!--    List item game   -->
+    <string name="game_is_win">승</string>
+    <string name="game_is_lose">패</string>
+    <string name="game_contribution_for_killrate">킬관여 %s</string>
+    <plurals name="game_create_date_seconds_ago">
+        <item quantity="other">%d초 전</item>
+    </plurals>
+
+    <plurals name="game_create_date_minutes_ago">
+        <item quantity="other">%d분 전</item>
+    </plurals>
+
+    <plurals name="game_create_date_hours_ago">
+        <item quantity="other">%d시간 전</item>
+    </plurals>
+</resources>

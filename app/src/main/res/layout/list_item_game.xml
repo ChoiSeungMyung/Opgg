@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="game"
+            type="com.victoryzzi.android.apps.opgg.model.Game" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:layout_marginTop="@dimen/dp_4"
+        android:background="@color/colorWhite100">
+<!--    wrapContent로 바꾸고 싶음    -->
+<!--    marginBottom 16 줘야함    -->
+        <com.victoryzzi.android.apps.opgg.ui.view.GameInfo
+            android:id="@+id/game_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:bg="@{game.win? @color/colorSoftBlue : @color/colorDarkishPink}"
+            app:gameLength="@{game.gameLength}"
+            app:isWin="@{game.win? @string/game_is_win : @string/game_is_lose}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.11" />
+
+        <com.victoryzzi.android.apps.opgg.ui.view.Profile
+            android:id="@+id/game_champion_image"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            app:layout_constraintStart_toEndOf="@id/game_info"
+            app:layout_constraintTop_toTopOf="parent"
+            app:profileImage="@{game.champion}"
+            app:profileText="@{game.opScoreBadge}" />
+
+
+        <com.victoryzzi.android.apps.opgg.ui.view.GameSpells
+            android:id="@+id/game_spells"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_4"
+            app:layout_constraintBottom_toBottomOf="@id/game_champion_image"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/game_champion_image"
+            app:layout_constraintTop_toTopOf="@id/game_champion_image"
+            app:spells="@{game.spells}" />
+
+        <TextView
+            android:id="@+id/game_kda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_18"
+            android:textColor="@color/colorGunMental"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:KDA="@{game.getKDA()}"
+            app:layout_constraintStart_toEndOf="@id/game_spells"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10 / 7 / 1" />
+
+        <TextView
+            android:id="@+id/game_contribution_killrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="@{@string/game_contribution_for_killrate(game.contributionForKillRate)}"
+            android:textColor="@color/colorGunMental"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintStart_toStartOf="@id/game_kda"
+            app:layout_constraintTop_toBottomOf="@id/game_kda"
+            tools:text="킬관여 13%" />
+
+        <TextView
+            android:id="@+id/game_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_1"
+            android:text="@{game.gameType}"
+            android:textColor="@color/colorCoolGray"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/game_champion_image"
+            tools:text="솔랭" />
+
+        <TextView
+            android:id="@+id/game_create_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorCoolGray"
+            android:textSize="@dimen/sp_12"
+            app:createDate="@{game.createDate}"
+            app:layout_constraintEnd_toEndOf="@id/game_type"
+            app:layout_constraintTop_toBottomOf="@id/game_type"
+            tools:text="2분 전" />
+
+        <com.victoryzzi.android.apps.opgg.ui.view.GameItems
+            android:id="@+id/game_items"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_8"
+            app:items="@{game.items}"
+            app:layout_constraintEnd_toEndOf="@id/game_kda"
+            app:layout_constraintStart_toStartOf="@id/game_champion_image"
+            app:layout_constraintTop_toBottomOf="@id/game_champion_image" />
+
+        <TextView
+            android:id="@+id/game_largest_multi_kill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_largest_multikill"
+            android:textColor="@color/colorDarkishPink"
+            android:textSize="@dimen/sp_10"
+            app:largestMultiKill="@{game.largestMultiKill}"
+            app:layout_constraintBottom_toBottomOf="@id/game_items"
+            app:layout_constraintEnd_toEndOf="@id/game_create_date"
+            app:layout_constraintTop_toTopOf="@id/game_items"
+            tools:text="Quadra Kill" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

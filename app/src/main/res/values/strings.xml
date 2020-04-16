@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Opgg</string>
+
+    <!--    List item game   -->
+    <string name="game_is_win">W</string>
+    <string name="game_is_lose">L</string>
+    <string name="game_contribution_for_killrate">P/Kill %s</string>
+    <plurals name="game_create_date_seconds_ago">
+        <item quantity="zero">0s ago</item>
+        <item quantity="one">1s ago</item>
+        <item quantity="other">$ds ago</item>
+    </plurals>
+
+    <plurals name="game_create_date_minutes_ago">
+        <item quantity="zero">0m ago</item>
+        <item quantity="one">1m ago</item>
+        <item quantity="other">%dm ago</item>
+    </plurals>
+
+    <plurals name="game_create_date_hours_ago">
+        <item quantity="zero">0h ago</item>
+        <item quantity="one">1h ago</item>
+        <item quantity="other">%dh ago</item>
+    </plurals>
+</resources>
