@@ -1,11 +1,9 @@
-package com.victoryzzi.android.apps.opgg.adapter
+package com.victoryzzi.android.apps.opgg.adapter.binding
 
 import android.graphics.Color
-import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
-import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -16,11 +14,9 @@ import com.victoryzzi.android.apps.opgg.model.Spell
 import com.victoryzzi.android.apps.opgg.ui.view.GameInfo
 import com.victoryzzi.android.apps.opgg.ui.view.GameItems
 import com.victoryzzi.android.apps.opgg.ui.view.GameSpells
-import com.victoryzzi.android.apps.opgg.ui.view.Profile
 import kotlinx.android.synthetic.main.layout_game_info.view.*
 import kotlinx.android.synthetic.main.layout_game_items.view.*
 import kotlinx.android.synthetic.main.layout_game_spells.view.*
-import kotlinx.android.synthetic.main.layout_profile.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,47 +49,6 @@ fun setGameLength(view: GameInfo, gameLength: String) {
 @BindingAdapter("isWin")
 fun setIsWinText(view: GameInfo, isWin: String) {
     view.game_is_win.text = isWin
-}
-
-@BindingAdapter("profileImage")
-fun setChampionImage(view: Profile, championImageUrl: String) {
-    Glide.with(view).load(championImageUrl).apply {
-        circleCrop()
-    }.into(view.profile_image)
-}
-
-@BindingAdapter("profileText")
-fun setBadge(view: Profile, msg: String) {
-    println(msg)
-    when (msg) {
-        "ACE" -> {
-            view.profile_text.apply {
-                setBackgroundResource(R.drawable.ic_badge_ace)
-                setTypeface(typeface, Typeface.BOLD)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, view.resources.getDimension(R.dimen.sp_10))
-                text = msg
-            }
-        }
-
-        "MVP" -> {
-            view.profile_text.apply {
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, view.resources.getDimension(R.dimen.sp_10))
-                setBackgroundResource(R.drawable.ic_badge_mvp)
-                setTypeface(typeface, Typeface.BOLD)
-                text = msg
-            }
-        }
-        "" -> {
-            view.profile_text.visibility = View.GONE
-        }
-        else -> {
-            view.profile_text.apply {
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, view.resources.getDimension(R.dimen.sp_12))
-                setBackgroundResource(R.drawable.ic_badge_level)
-                text = msg
-            }
-        }
-    }
 }
 
 @BindingAdapter("KDA")

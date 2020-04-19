@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="league"
+            type="com.victoryzzi.android.apps.opgg.model.League" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/dp_240"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:background="@drawable/bg_league">
+
+        <ImageView
+            android:id="@+id/summoner_tier_rank_image"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_17"
+            android:layout_marginBottom="@dimen/dp_17"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:leagueTier="@{league.tierRank.imageUrl}"
+            tools:src="@drawable/challenger_1" />
+
+        <TextView
+            android:id="@+id/summoner_tier_rank_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:text="@{league.tierRank.name}"
+            android:textColor="@color/colorSoftBlue"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toTopOf="@id/summoner_tier_rank_image"
+            app:layout_constraintStart_toEndOf="@id/summoner_tier_rank_image"
+            app:layout_constraintTop_toTopOf="@id/summoner_tier_rank_image"
+            tools:text="솔랭" />
+
+        <TextView
+            android:id="@+id/summoner_tier_rank_tier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="@{league.tierRank.tier}"
+            android:textColor="@color/colorDarkGrey"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/summoner_tier_rank_name"
+            app:layout_constraintTop_toBottomOf="@id/summoner_tier_rank_name"
+            tools:text="GrandMaster" />
+
+        <TextView
+            android:id="@+id/summoner_tier_rank_lp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="@{league.tierRank.getLp()}"
+            android:textColor="@color/colorGunMental"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintStart_toStartOf="@id/summoner_tier_rank_tier"
+            app:layout_constraintTop_toBottomOf="@id/summoner_tier_rank_tier"
+            tools:text="1,234 LP" />
+
+        <TextView
+            android:id="@+id/summoner_tier_rank_win_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_2"
+            android:textColor="@color/colorCoolGrey"
+            android:textSize="@dimen/sp_10"
+            app:winRate="@{league}"
+            app:layout_constraintStart_toStartOf="@id/summoner_tier_rank_lp"
+            app:layout_constraintTop_toBottomOf="@id/summoner_tier_rank_lp"
+            tools:text="145승 152패 (48%)" />
+
+        <ImageView
+            android:id="@+id/summoner_tier_rank_arrow"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@drawable/bg_shape_oval"
+            android:backgroundTint="@color/colorPaleGrey"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

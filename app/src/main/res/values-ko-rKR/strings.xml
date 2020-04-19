@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Opgg</string>
+    <!--    Summoner    -->
+    <string name="summoner_score_renew">전적갱신</string>
+    <string name="summoner_win_rate">%d승 %d패 (%d%%)</string>
+
+    <!--    Games analysis-->
+    <string name="games_analysis_position_title">포지션</string>
+    <string name="games_analysis_most_picked_title">모스트 승률</string>
 
     <!--    List item game   -->
     <string name="game_is_win">승</string>

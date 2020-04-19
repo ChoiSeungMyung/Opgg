@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Opgg</string>
 
+    <!--    Summoner    -->
+    <string name="summoner_score_renew">Renew</string>
+    <string name="summoner_win_rate">%dW %dL (%d%%)</string>
+
+    <!--    Games analysis-->
+    <string name="games_analysis_position_title">Position</string>
+    <string name="games_analysis_most_picked_title">Most picked</string>
+
     <!--    List item game   -->
     <string name="game_is_win">W</string>
     <string name="game_is_lose">L</string>

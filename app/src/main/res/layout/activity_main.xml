@@ -1,19 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".ui.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/game_list"
+    <data>
+
+        <variable
+            name="summoner"
+            type="com.victoryzzi.android.apps.opgg.model.Summoner" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/list_item_game"/>
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".ui.MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/summoner_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite100"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.victoryzzi.android.apps.opgg.ui.view.Profile
+                android:id="@+id/summoner_profile"
+                android:layout_width="@dimen/dp_72"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_36"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:profileImage="@{summoner.profileImageUrl}"
+                app:profileText="@{summoner.level}" />
+
+            <TextView
+                android:id="@+id/summoner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorDarkGrey"
+                android:textSize="@dimen/sp_22"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/dp_16"
+                android:text="@{summoner.name}"
+                app:layout_constraintTop_toTopOf="@id/summoner_profile"
+                app:layout_constraintStart_toEndOf="@id/summoner_profile"/>
+
+            <Button
+                android:id="@+id/summoner_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:textSize="@dimen/sp_14"
+                android:text="@string/summoner_score_renew"
+                android:textColor="@color/colorWhite100"
+                android:background="@drawable/bg_refresh_button"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="@id/summoner_name"
+                app:layout_constraintTop_toBottomOf="@id/summoner_name"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/summoner_league_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_44"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@id/summoner_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/summoner_refresh"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:listitem="@layout/list_item_league"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.victoryzzi.android.apps.opgg.ui.view.GamesAnalysis
+            android:id="@+id/games_analysis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            app:layout_constraintTop_toBottomOf="@id/summoner_info"
+            app:layout_constraintBottom_toTopOf="@id/game_list"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/game_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/games_analysis"
+            tools:listitem="@layout/list_item_game" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
