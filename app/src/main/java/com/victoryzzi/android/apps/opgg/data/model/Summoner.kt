@@ -1,8 +1,6 @@
-package com.victoryzzi.android.apps.opgg.model
+package com.victoryzzi.android.apps.opgg.data.model
 
-import android.content.res.Resources
 import com.squareup.moshi.JsonClass
-import com.victoryzzi.android.apps.opgg.R
 
 @JsonClass(generateAdapter = true)
 data class Summoners(

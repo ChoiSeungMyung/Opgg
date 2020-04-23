@@ -7,7 +7,7 @@
 
         <variable
             name="league"
-            type="com.victoryzzi.android.apps.opgg.model.League" />
+            type="com.victoryzzi.android.apps.opgg.data.model.League" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +28,7 @@
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:leagueTier="@{league.tierRank.imageUrl}" />
+            app:imageUrl="@{league.tierRank.imageUrl}" />
 
         <TextView
             android:id="@+id/summoner_tier_rank_name"

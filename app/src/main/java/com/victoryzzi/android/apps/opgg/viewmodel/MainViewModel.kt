@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.victoryzzi.android.apps.opgg.adapter.list.GameListAdapter
 import com.victoryzzi.android.apps.opgg.adapter.list.LeagueListAdapter
-import com.victoryzzi.android.apps.opgg.service.GameRepo
-import com.victoryzzi.android.apps.opgg.service.SummonerRepo
+import com.victoryzzi.android.apps.opgg.data.repository.GameRepo
+import com.victoryzzi.android.apps.opgg.data.repository.SummonerRepo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi

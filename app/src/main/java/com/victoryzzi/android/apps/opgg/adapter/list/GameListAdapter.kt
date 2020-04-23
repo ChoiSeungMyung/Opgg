@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.victoryzzi.android.apps.opgg.R
 import com.victoryzzi.android.apps.opgg.adapter.list.viewholder.GameListViewHolder
-import com.victoryzzi.android.apps.opgg.model.games.Game
+import com.victoryzzi.android.apps.opgg.data.model.games.Game
 
 class GameListAdapter : ListAdapter<Game, GameListViewHolder>(GamesDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameListViewHolder =

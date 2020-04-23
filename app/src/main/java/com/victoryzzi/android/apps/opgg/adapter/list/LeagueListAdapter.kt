@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.victoryzzi.android.apps.opgg.R
 import com.victoryzzi.android.apps.opgg.adapter.list.viewholder.LeagueListViewHolder
-import com.victoryzzi.android.apps.opgg.loge
-import com.victoryzzi.android.apps.opgg.model.League
+import com.victoryzzi.android.apps.opgg.data.model.League
 
 class LeagueListAdapter : ListAdapter<League, LeagueListViewHolder>(LeagueDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeagueListViewHolder =

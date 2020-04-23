@@ -1,6 +1,7 @@
 package com.victoryzzi.android.apps.opgg.service
 
 import com.squareup.moshi.Moshi
+import com.victoryzzi.android.apps.opgg.BASE_URL
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -17,10 +18,11 @@ object NetworkHelper {
             .build()
     }
 
+//    BASE_URL = "https://codingtest.op.gg"
     private val retrofit by lazy {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .baseUrl("https://codingtest.op.gg")
+            .baseUrl(BASE_URL)
             .client(okhttp)
             .build()
     }

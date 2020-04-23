@@ -4,10 +4,17 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.victoryzzi.android.apps.opgg.R
 import com.victoryzzi.android.apps.opgg.getKDASpannable
-import com.victoryzzi.android.apps.opgg.model.games.Champions
+import com.victoryzzi.android.apps.opgg.data.model.games.Champions
 import com.victoryzzi.android.apps.opgg.ui.view.GamesAnalysis
 import kotlinx.android.synthetic.main.layout_games_analysis.view.*
 import java.util.*
+
+/**
+ * activity_main에서 데이터를 받아
+ * GamesAnalysis, layout_games_analysis.xml의
+ * BindingAdapter
+ */
+
 
 /**
  * 최근 20게임 전적 분석

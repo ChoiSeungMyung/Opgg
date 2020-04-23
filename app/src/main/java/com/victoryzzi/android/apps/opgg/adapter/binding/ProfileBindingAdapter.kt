@@ -9,11 +9,18 @@ import com.victoryzzi.android.apps.opgg.R
 import com.victoryzzi.android.apps.opgg.ui.view.Profile
 import kotlinx.android.synthetic.main.layout_profile.view.*
 
+/**
+ * Profile, layout_profile에 해당하는
+ * BindingAdapter
+ */
+
+
 @BindingAdapter("profileImage")
 fun setProfileImage(view: Profile, championImageUrl: String?) {
-    Glide.with(view).load(championImageUrl).apply {
-        circleCrop()
-    }.into(view.profile_image)
+    Glide.with(view)
+        .load(championImageUrl)
+        .circleCrop()
+        .into(view.profile_image)
 }
 
 /**

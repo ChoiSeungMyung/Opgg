@@ -6,8 +6,8 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.victoryzzi.android.apps.opgg.R
 import com.victoryzzi.android.apps.opgg.getKDASpannable
-import com.victoryzzi.android.apps.opgg.model.games.Item
-import com.victoryzzi.android.apps.opgg.model.games.Spell
+import com.victoryzzi.android.apps.opgg.data.model.games.Item
+import com.victoryzzi.android.apps.opgg.data.model.games.Spell
 import com.victoryzzi.android.apps.opgg.ui.view.GameInfo
 import com.victoryzzi.android.apps.opgg.ui.view.GameItems
 import com.victoryzzi.android.apps.opgg.ui.view.GameSpells
@@ -17,6 +17,10 @@ import kotlinx.android.synthetic.main.layout_game_spells.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * list_item_game 바인딩을 위한
+ * BindingAdapter
+ */
 @BindingAdapter("bg")
 fun setGameInfoBackgroundColor(view: GameInfo, resource: Int) {
     view.game_info_wrapper.setBackgroundColor(resource)

@@ -1,19 +1,15 @@
 package com.victoryzzi.android.apps.opgg.adapter.binding
 
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
 import com.victoryzzi.android.apps.opgg.R
-import com.victoryzzi.android.apps.opgg.model.League
+import com.victoryzzi.android.apps.opgg.data.model.League
 
-@BindingAdapter("leagueTier")
-fun setLeagueTierImage(view: ImageView, imageUrl: String) {
-    Glide.with(view)
-        .load(imageUrl)
-        .into(view)
-}
+/**
+ * list_item_league 데이터 바인딩을 위한
+ * Binding Adapter
+ */
 
 /**
  * 리그 성적이 없다면 GONE 처리

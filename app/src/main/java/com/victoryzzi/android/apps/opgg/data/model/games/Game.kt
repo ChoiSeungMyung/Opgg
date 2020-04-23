@@ -1,4 +1,4 @@
-package com.victoryzzi.android.apps.opgg.model.games
+package com.victoryzzi.android.apps.opgg.data.model.games
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

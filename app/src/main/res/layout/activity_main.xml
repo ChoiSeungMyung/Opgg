@@ -7,13 +7,13 @@
 
         <variable
             name="games"
-            type="com.victoryzzi.android.apps.opgg.model.games.Games" />
+            type="com.victoryzzi.android.apps.opgg.data.games.Games" />
         <variable
             name="positions"
-            type="com.victoryzzi.android.apps.opgg.model.games.Positions" />
+            type="com.victoryzzi.android.apps.opgg.data.games.Positions" />
         <variable
             name="summoner"
-            type="com.victoryzzi.android.apps.opgg.model.Summoner" />
+            type="com.victoryzzi.android.apps.opgg.data.model.Summoner" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
