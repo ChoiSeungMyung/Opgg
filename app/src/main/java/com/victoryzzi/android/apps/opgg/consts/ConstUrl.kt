@@ -1,4 +1,4 @@
-package com.victoryzzi.android.apps.opgg
+package com.victoryzzi.android.apps.opgg.consts
 
 const val BASE_URL = "https://codingtest.op.gg"
 

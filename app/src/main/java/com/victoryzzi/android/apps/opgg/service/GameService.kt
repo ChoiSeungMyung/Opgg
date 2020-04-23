@@ -1,7 +1,7 @@
 package com.victoryzzi.android.apps.opgg.service
 
-import com.victoryzzi.android.apps.opgg.GAME_SERVICE_QUERY
-import com.victoryzzi.android.apps.opgg.GAME_SERVICE_URL
+import com.victoryzzi.android.apps.opgg.consts.GAME_SERVICE_QUERY
+import com.victoryzzi.android.apps.opgg.consts.GAME_SERVICE_URL
 import com.victoryzzi.android.apps.opgg.data.model.games.Games
 import retrofit2.Call
 import retrofit2.http.GET

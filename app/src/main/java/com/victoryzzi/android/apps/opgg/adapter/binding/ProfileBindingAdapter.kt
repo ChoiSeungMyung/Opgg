@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.layout_profile.view.*
 fun setProfileImage(view: Profile, championImageUrl: String?) {
     Glide.with(view)
         .load(championImageUrl)
-        .circleCrop()
         .into(view.profile_image)
 }
 

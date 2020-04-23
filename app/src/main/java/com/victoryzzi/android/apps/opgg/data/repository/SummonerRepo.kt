@@ -14,12 +14,14 @@ import kotlinx.coroutines.flow.collect
 
 @ExperimentalCoroutinesApi
 object SummonerRepo {
+    var preSummoners: Summoners? = null
     val requestSummonerLiveData = MutableLiveData<String>()
     val responseSummonerLiveData: LiveData<Summoners> = requestSummonerLiveData.switchMap { summonerName ->
         liveData(Dispatchers.IO) {
             NetworkHelper.summonerService.loadSummoner(summonerName).asCallbackFlow().catch { e ->
                 e.printStackTrace()
             }.collect {
+                preSummoners = it
                 emit(it)
             }
         }

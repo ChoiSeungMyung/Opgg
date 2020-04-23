@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         actMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java).run {
-            //            Games 데이터와 관련된 LiveData observe : games초기화 & 전적 갱신
+//              Games 데이터와 관련된 LiveData observe : games초기화 & 전적 갱신
             responseGameLiveData.observe(this@MainActivity, Observer {
                 actMainBinding.apply {
                     games = it
@@ -79,13 +79,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initView() {
-        summoner_refresh.setOnClickListener(this)
+        btn_renew.setOnClickListener(this)
         game_list.addOnScrollListener(scrollChangeListener)
     }
 
     override fun onClick(view: View?) {
         when (view) {
-            summoner_refresh -> {
+            btn_renew -> {
                 when (networkCheck()) {
                     true -> {
                         mainViewModel.apply {

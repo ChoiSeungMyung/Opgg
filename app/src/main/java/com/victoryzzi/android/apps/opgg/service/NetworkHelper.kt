@@ -1,7 +1,7 @@
 package com.victoryzzi.android.apps.opgg.service
 
 import com.squareup.moshi.Moshi
-import com.victoryzzi.android.apps.opgg.BASE_URL
+import com.victoryzzi.android.apps.opgg.consts.BASE_URL
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

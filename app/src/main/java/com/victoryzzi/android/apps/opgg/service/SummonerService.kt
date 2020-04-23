@@ -1,7 +1,7 @@
 package com.victoryzzi.android.apps.opgg.service
 
-import com.victoryzzi.android.apps.opgg.SUMMONER_SERVICE_PATH
-import com.victoryzzi.android.apps.opgg.SUMMONER_SERVICE_URL
+import com.victoryzzi.android.apps.opgg.consts.SUMMONER_SERVICE_PATH
+import com.victoryzzi.android.apps.opgg.consts.SUMMONER_SERVICE_URL
 import com.victoryzzi.android.apps.opgg.data.model.Summoners
 import retrofit2.Call
 import retrofit2.http.GET
