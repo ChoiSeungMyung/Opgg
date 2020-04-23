@@ -5,13 +5,13 @@ buildscript {
         compileSdkVersion = 29
         minSdkVersion = 19
         targetSdkVersion = 29
-        kotlin_version = '1.3.61'
+        kotlin_version = '1.3.71'
         coroutineVersion = '1.3.3'
         glideVersion = '4.11.0'
         lifecycleVersion = '2.2.0'
         workVersion = '2.3.4'
-        okhttpVersion = '4.2.2'
-        retrofitVersion = '2.7.0'
+        okhttpVersion = '4.5.0'
+        retrofitVersion = '2.8.1'
         moshiVersion = '1.9.2'
     }
     repositories {

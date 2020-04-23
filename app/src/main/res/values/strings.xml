@@ -8,6 +8,8 @@
     <!--    Games analysis-->
     <string name="games_analysis_position_title">Position</string>
     <string name="games_analysis_most_picked_title">Most picked</string>
+    <string name="games_analysis_recent_win_rate">%dW %dL</string>
+    <string name="games_analysis_description">Recent %d games</string>
 
     <!--    List item game   -->
     <string name="game_is_win">W</string>
@@ -18,16 +20,17 @@
         <item quantity="one">1s ago</item>
         <item quantity="other">$ds ago</item>
     </plurals>
-
     <plurals name="game_create_date_minutes_ago">
         <item quantity="zero">0m ago</item>
         <item quantity="one">1m ago</item>
         <item quantity="other">%dm ago</item>
     </plurals>
-
     <plurals name="game_create_date_hours_ago">
         <item quantity="zero">0h ago</item>
         <item quantity="one">1h ago</item>
         <item quantity="other">%dh ago</item>
     </plurals>
+
+    <!--   SnackBar Message -->
+    <string name="toast_check_connectivity">Please check the Internet connection status</string>
 </resources>

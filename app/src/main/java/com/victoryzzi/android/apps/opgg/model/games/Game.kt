@@ -1,30 +1,7 @@
-package com.victoryzzi.android.apps.opgg.model
+package com.victoryzzi.android.apps.opgg.model.games
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-
-@JsonClass(generateAdapter = true)
-data class Games(
-    val games: List<Game>,
-    val champions: List<Champions>,
-    val positions: List<Positions>
-)
-
-@JsonClass(generateAdapter = true)
-data class Champions(
-    val imageUrl: String,
-    val games: Int,
-    val wins: Int
-)
-
-@JsonClass(generateAdapter = true)
-data class Positions(
-    val games: Int,
-    val wins: Int,
-    val losses: Int,
-    val position: String,
-    val positionName: String
-)
 
 @JsonClass(generateAdapter = true)
 data class Game(
@@ -60,7 +37,6 @@ data class General(
     val opScoreBadge: String
 ) {
     fun getKDA() = "$kill / $death / $assist"
-
 }
 
 @JsonClass(generateAdapter = true)

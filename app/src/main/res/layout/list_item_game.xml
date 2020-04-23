@@ -7,7 +7,7 @@
 
         <variable
             name="game"
-            type="com.victoryzzi.android.apps.opgg.model.Game" />
+            type="com.victoryzzi.android.apps.opgg.model.games.Game" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

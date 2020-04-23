@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 @ExperimentalCoroutinesApi
-object ServiceRepo {
+object NetworkHelper {
     private val okhttp by lazy {
         OkHttpClient.Builder().build()
     }

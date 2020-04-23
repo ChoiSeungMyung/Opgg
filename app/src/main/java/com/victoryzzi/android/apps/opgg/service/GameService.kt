@@ -1,6 +1,6 @@
 package com.victoryzzi.android.apps.opgg.service
 
-import com.victoryzzi.android.apps.opgg.model.Games
+import com.victoryzzi.android.apps.opgg.model.games.Games
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

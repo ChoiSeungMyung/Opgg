@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.victoryzzi.android.apps.opgg.R
 import com.victoryzzi.android.apps.opgg.adapter.list.viewholder.GameListViewHolder
-import com.victoryzzi.android.apps.opgg.model.Game
+import com.victoryzzi.android.apps.opgg.model.games.Game
 
 class GameListAdapter : ListAdapter<Game, GameListViewHolder>(GamesDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameListViewHolder =
@@ -30,5 +30,5 @@ class GamesDiffCallBack : DiffUtil.ItemCallback<Game>() {
         oldItem.gameId == newItem.gameId
 
     override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean =
-        oldItem.gameId == newItem.gameId
+        oldItem == newItem
 }

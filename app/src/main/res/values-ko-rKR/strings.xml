@@ -8,6 +8,8 @@
     <!--    Games analysis-->
     <string name="games_analysis_position_title">포지션</string>
     <string name="games_analysis_most_picked_title">모스트 승률</string>
+    <string name="games_analysis_recent_win_rate">%d승 %d패</string>
+    <string name="games_analysis_description">최근 %d게임 분석</string>
 
     <!--    List item game   -->
     <string name="game_is_win">승</string>
@@ -24,4 +26,7 @@
     <plurals name="game_create_date_hours_ago">
         <item quantity="other">%d시간 전</item>
     </plurals>
+
+    <!--   SnackBar Message -->
+    <string name="toast_check_connectivity">인터넷 연결 상태를 확인 해주세요</string>
 </resources>

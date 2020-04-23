@@ -16,6 +16,10 @@ fun setProfileImage(view: Profile, championImageUrl: String?) {
     }.into(view.profile_image)
 }
 
+/**
+ * 뷰 특성에 따라 뱃지 텍스트가 다르기 때문에
+ * 뱃지 텍스트 마다 다른 속성값과 다른 배경 적용
+ */
 @BindingAdapter("profileText")
 fun setBadge(view: Profile, msg: String?) {
     if (msg != null) {

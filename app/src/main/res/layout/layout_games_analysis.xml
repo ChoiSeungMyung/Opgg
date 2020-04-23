@@ -70,24 +70,25 @@
         android:layout_width="@dimen/dp_30"
         android:layout_height="0dp"
         android:background="@drawable/bg_shape_oval"
+        android:src="@drawable/ic_default_item"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@id/games_analysis_most_picked_title"
         app:layout_constraintTop_toTopOf="@id/games_analysis_wins"
         app:layout_constraintEnd_toStartOf="@id/games_analysis_most_picked_champion_image_second"
-        app:layout_constraintBottom_toBottomOf="@id/games_analysis_kda"
-        tools:src="@drawable/qiyana_test"/>
+        app:layout_constraintBottom_toBottomOf="@id/games_analysis_kda" />
 
     <ImageView
         android:id="@+id/games_analysis_most_picked_champion_image_second"
         android:layout_width="@dimen/dp_30"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/dp_16"
+        android:background="@drawable/bg_shape_oval"
+        android:src="@drawable/ic_default_item"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="@id/games_analysis_most_picked_champion_image_first"
         app:layout_constraintStart_toEndOf="@id/games_analysis_most_picked_champion_image_first"
         app:layout_constraintEnd_toEndOf="@id/games_analysis_most_picked_title"
-        app:layout_constraintBottom_toBottomOf="@id/games_analysis_most_picked_champion_image_first"
-        tools:src="@drawable/qiyana_test"/>
+        app:layout_constraintBottom_toBottomOf="@id/games_analysis_most_picked_champion_image_first" />
 
     <TextView
         android:id="@+id/games_analysis_most_picked_champion_rate_first"
@@ -128,6 +129,7 @@
         android:layout_width="@dimen/dp_24"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/ic_default_item"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toBottomOf="@id/games_analysis_positions_title"
         app:layout_constraintStart_toStartOf="@id/games_analysis_positions_title"

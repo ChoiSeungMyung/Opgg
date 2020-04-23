@@ -15,6 +15,9 @@ fun setLeagueTierImage(view: ImageView, imageUrl: String) {
         .into(view)
 }
 
+/**
+ * 리그 성적이 없다면 GONE 처리
+ */
 @BindingAdapter("winRate")
 fun setLeagueWinRate(view: TextView, league: League) {
     val totalGames = league.wins + league.losses

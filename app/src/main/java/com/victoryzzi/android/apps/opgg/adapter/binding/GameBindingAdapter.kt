@@ -1,16 +1,13 @@
 package com.victoryzzi.android.apps.opgg.adapter.binding
 
-import android.graphics.Color
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.victoryzzi.android.apps.opgg.R
-import com.victoryzzi.android.apps.opgg.model.Item
-import com.victoryzzi.android.apps.opgg.model.Spell
+import com.victoryzzi.android.apps.opgg.getKDASpannable
+import com.victoryzzi.android.apps.opgg.model.games.Item
+import com.victoryzzi.android.apps.opgg.model.games.Spell
 import com.victoryzzi.android.apps.opgg.ui.view.GameInfo
 import com.victoryzzi.android.apps.opgg.ui.view.GameItems
 import com.victoryzzi.android.apps.opgg.ui.view.GameSpells
@@ -25,6 +22,10 @@ fun setGameInfoBackgroundColor(view: GameInfo, resource: Int) {
     view.game_info_wrapper.setBackgroundColor(resource)
 }
 
+/**
+ * gameLength를 00:00으로 표현
+ * 10분 || 10초 를 안넘는 경우를 나누어 표현
+ */
 @BindingAdapter("gameLength")
 fun setGameLength(view: GameInfo, gameLength: String) {
     val minute = gameLength.toLong() / 60
@@ -53,43 +54,29 @@ fun setIsWinText(view: GameInfo, isWin: String) {
 
 @BindingAdapter("KDA")
 fun setKDAText(view: TextView, kda: String) {
-    val startIndex = kda.indexOfFirst { it == "/".single() } + 1
-    val lastIndex = kda.indexOfLast { it == "/".single() }
-    val spannable = SpannableStringBuilder(kda).apply {
-        setSpan(
-            ForegroundColorSpan(Color.rgb(82, 89, 95)),
-            0,
-            startIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        setSpan(
-            ForegroundColorSpan(Color.rgb(232, 64, 87)),
-            startIndex,
-            lastIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        setSpan(
-            ForegroundColorSpan(Color.rgb(82, 89, 95)),
-            lastIndex,
-            kda.length,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-    }
-    view.text = spannable
+    view.text = getKDASpannable(kda)
 }
 
+/**
+ * index를 이용해 들어가야할 스펠 순서를 맞춤
+ */
 @BindingAdapter("spells")
 fun setSpells(view: GameSpells, spells: List<Spell>) {
     val viewList = listOf(view.spells_first, view.spells_second)
     spells.forEachIndexed { i, spell ->
         when (spell.imageUrl.isBlank()) {
             false -> {
-                Glide.with(view).load(spell.imageUrl).into(viewList[i])
+                Glide.with(view)
+                    .load(spell.imageUrl)
+                    .into(viewList[i])
             }
         }
     }
 }
 
+/**
+ * index를 이용해 들어가야할 퍽(?) 순서를 맞춤
+ */
 @BindingAdapter("perks")
 fun setPerks(view: GameSpells, perks: List<String>) {
     val viewList = listOf(view.perk_first, view.perk_second)
@@ -102,6 +89,14 @@ fun setPerks(view: GameSpells, perks: List<String>) {
     }
 }
 
+/**
+ * 게임 생성 시간에 따라
+ * ~초전
+ * ~분전
+ * ~시간전
+ * 으로 표현 하고
+ * 24시간이 넘는 다면 날짜로 표현
+ */
 @BindingAdapter("createDate")
 fun setCreateDate(view: TextView, createDate: String) {
     val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd", Locale.getDefault())
@@ -147,16 +142,23 @@ fun setItems(view: GameItems, items: List<Item>) {
     items.forEachIndexed { i, item ->
         when (item.imageUrl.isBlank()) {
             false -> {
-                Glide.with(view).load(item.imageUrl).into(viewList[i])
+                Glide.with(view)
+                    .load(item.imageUrl)
+                    .into(viewList[i])
             }
         }
     }
 }
 
+/**
+ * largestMultiKill에 따라 뱃지 표현
+ * 공백문자일때도 뱃지는 Empty와 같은 취급이기 때문에
+ * blank()로 조건 걸어줌
+ */
 @BindingAdapter("largestMultiKill")
 fun setLargestMultiKill(view: TextView, msg: String) {
-    when (msg) {
-        "" -> view.visibility = View.GONE
-        else -> view.text = msg
+    when (msg.isBlank()) {
+        true -> view.visibility = View.GONE
+        false -> view.text = msg
     }
 }

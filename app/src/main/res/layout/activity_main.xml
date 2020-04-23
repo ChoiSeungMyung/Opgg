@@ -6,11 +6,18 @@
     <data>
 
         <variable
+            name="games"
+            type="com.victoryzzi.android.apps.opgg.model.games.Games" />
+        <variable
+            name="positions"
+            type="com.victoryzzi.android.apps.opgg.model.games.Positions" />
+        <variable
             name="summoner"
             type="com.victoryzzi.android.apps.opgg.model.Summoner" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
@@ -82,7 +89,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_8"
             app:layout_constraintTop_toBottomOf="@id/summoner_info"
-            app:layout_constraintBottom_toTopOf="@id/game_list"/>
+            app:layout_constraintBottom_toTopOf="@id/game_list"
+            app:recentWinRate="@{positions.recentWinRate}"
+            app:analysisDescription="@{positions.games}"
+            app:kdaAnalysis="@{games.kDAAverage}"
+            app:kdaRateAnalysis="@{games.kDARate}"
+            app:mostChampions="@{games.mostChampions}"
+            app:positionImage="@{positions.positionName}"
+            app:positionPercent="@{positions.positionWinRate}"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/game_list"

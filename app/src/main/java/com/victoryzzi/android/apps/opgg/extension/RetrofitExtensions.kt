@@ -7,6 +7,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * Retrofit 오픈소스를 이용해 네트워크 통신을 한 후
+ * 결과값을 Kotlin의 Flow로 받기 위한 확장함수
+ */
 @ExperimentalCoroutinesApi
 fun <T> Call<T>.asCallbackFlow() = callbackFlow<T> {
     enqueue(object : Callback<T> {

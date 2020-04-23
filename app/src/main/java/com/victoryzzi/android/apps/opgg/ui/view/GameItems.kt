@@ -1,6 +1,7 @@
 package com.victoryzzi.android.apps.opgg.ui.view
 
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +14,9 @@ class GameItems(context: Context, attrs: AttributeSet) : ConstraintLayout(contex
     init {
         View.inflate(context, R.layout.layout_game_items, this)
         game_items_root.children.forEach {
-            it.clipToOutline = true
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                it.clipToOutline = true
+            }
         }
     }
 }

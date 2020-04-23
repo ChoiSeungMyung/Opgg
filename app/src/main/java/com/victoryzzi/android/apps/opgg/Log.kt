@@ -30,7 +30,3 @@ fun Any.logw(msg: String) {
 fun Any.loge(msg: String) {
     Log.e(tag(), msg)
 }
-
-fun IntArray.until(): Int {
-    return this.size - 1
-}
