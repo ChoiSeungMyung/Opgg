@@ -7,10 +7,10 @@
 
         <variable
             name="games"
-            type="com.victoryzzi.android.apps.opgg.data.games.Games" />
+            type="com.victoryzzi.android.apps.opgg.data.model.games.Games" />
         <variable
             name="positions"
-            type="com.victoryzzi.android.apps.opgg.data.games.Positions" />
+            type="com.victoryzzi.android.apps.opgg.data.model.games.Positions" />
         <variable
             name="summoner"
             type="com.victoryzzi.android.apps.opgg.data.model.Summoner" />
