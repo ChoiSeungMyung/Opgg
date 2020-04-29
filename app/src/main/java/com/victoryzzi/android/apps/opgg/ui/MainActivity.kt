@@ -11,9 +11,6 @@ import com.victoryzzi.android.apps.opgg.R
 import com.victoryzzi.android.apps.opgg.databinding.ActivityMainBinding
 import com.victoryzzi.android.apps.opgg.extension.makeSnackBar
 import com.victoryzzi.android.apps.opgg.extension.networkCheck
-import com.victoryzzi.android.apps.opgg.data.repository.GameRepo.responseGameLiveData
-import com.victoryzzi.android.apps.opgg.data.repository.GameRepo.responseGameLiveDataMore
-import com.victoryzzi.android.apps.opgg.data.repository.SummonerRepo.responseSummonerLiveData
 import com.victoryzzi.android.apps.opgg.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
